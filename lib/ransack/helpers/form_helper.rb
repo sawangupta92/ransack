@@ -51,7 +51,7 @@ module Ransack
         end
         args.unshift(capture(&block)) if block_given?
         s = SortLink.new(search, attribute, args, params, &block)
-        link_to(s.name, url(routing_proxy, s.url_options), s.html_options(args))
+        link_to(s.name, url(routing_proxy, s.url_options.as_json), s.html_options(args))
       end
 
       private
